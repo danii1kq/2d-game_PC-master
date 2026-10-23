@@ -28,6 +28,7 @@ extends Control
 @onready var success_player: AudioStreamPlayer = $SuccessPlayer
 @onready var clean_player: AudioStreamPlayer = $CleanPlayer
 @onready var success_particles: CPUParticles2D = $SuccessParticles
+@onready var brush: ColorRect = $Brush
 @onready var status_label: Label = $RootVBox/Bottom/StatusLabel
 @onready var pc_panel: PanelContainer = $RootVBox/Middle/PCPanel
 
@@ -122,6 +123,9 @@ func _create_dirt() -> void:
         spot.gui_input.connect(_on_dirt_input.bind(spot))
         dirt_container.add_child(spot)
         _dirt_nodes.append(spot)
+
+func _input(event: InputEvent) -> void:
+    brush.position = get_local_mouse_position() - brush.size * 0.5
 
 func _on_dirt_input(event: InputEvent, spot: ColorRect) -> void:
     if event is InputEventMouseButton or event is InputEventMouseMotion:
