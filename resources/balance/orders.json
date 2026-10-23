@@ -15,8 +15,8 @@
       "client_en": "Client: “I want to play without lag”",
       "requirements": [{"type": "gpu_min", "value": 30}, {"type": "ram_min", "value": 16}],
       "dirt": 14,
-      "budget": 360,
-      "reward": 180
+      "budget": 420,
+      "reward": 200
     },
     {
       "id": "order_3",
@@ -24,8 +24,8 @@
       "client_en": "Client: “Build a quiet and powerful PC”",
       "requirements": [{"type": "cpu_min", "value": 40}, {"type": "gpu_min", "value": 40}, {"type": "cooling_min_heat", "value": 0}],
       "dirt": 18,
-      "budget": 700,
-      "reward": 360
+      "budget": 1050,
+      "reward": 520
     }
   ]
 }

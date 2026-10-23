@@ -82,6 +82,14 @@ text = "Тест"
 layout_mode = 2
 text = "Следующий заказ"
 
+[node name="UpgradeButton" type="Button" parent="RootVBox/Bottom"]
+layout_mode = 2
+text = "Улучшить мастерскую"
+
+[node name="AdButton" type="Button" parent="RootVBox/Bottom"]
+layout_mode = 2
+text = "Реклама: +120"
+
 [node name="StatusLabel" type="Label" parent="RootVBox/Bottom"]
 layout_mode = 2
 size_flags_horizontal = 3

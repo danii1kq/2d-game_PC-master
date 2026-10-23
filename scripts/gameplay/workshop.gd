@@ -9,13 +9,18 @@ extends Control
 @onready var cool_option: OptionButton = $RootVBox/Middle/ComponentsPanel/CompVBox/CoolOption
 @onready var test_button: Button = $RootVBox/Bottom/TestButton
 @onready var next_button: Button = $RootVBox/Bottom/NextButton
+@onready var upgrade_button: Button = $RootVBox/Bottom/UpgradeButton
+@onready var ad_button: Button = $RootVBox/Bottom/AdButton
 @onready var status_label: Label = $RootVBox/Bottom/StatusLabel
+@onready var pc_panel: PanelContainer = $RootVBox/Middle/PCPanel
 
 var _dirt_buttons: Array = []
 
 func _ready() -> void:
     test_button.pressed.connect(_on_test)
     next_button.pressed.connect(_on_next)
+    upgrade_button.pressed.connect(_on_upgrade)
+    ad_button.pressed.connect(_on_ad)
     cpu_option.item_selected.connect(func(i): _on_component_selected("cpu", i))
     gpu_option.item_selected.connect(func(i): _on_component_selected("gpu", i))
     ram_option.item_selected.connect(func(i): _on_component_selected("ram", i))
@@ -108,7 +113,9 @@ func _update_ui() -> void:
     var dirt_pct := 0
     if GameState.dirt_total > 0:
         dirt_pct = int(100.0 * (GameState.dirt_total - GameState.dirt_remaining) / GameState.dirt_total)
-    status_label.text = ("Очистка: %d%%" % dirt_pct) if GameState.language == "ru" else ("Cleaning: %d%%" % dirt_pct)
+    status_label.text = ("Очистка: %d%% | Мастерская: %d/3" % [dirt_pct, GameState.workshop_stage + 1]) if GameState.language == "ru" else ("Cleaning: %d%% | Workshop: %d/3" % [dirt_pct, GameState.workshop_stage + 1])
+    var stage_colors := [Color(0.25,0.25,0.3), Color(0.3,0.25,0.4), Color(0.25,0.35,0.45)]
+    pc_panel.modulate = stage_colors[clamp(GameState.workshop_stage, 0, 2)]
 
 func _on_test() -> void:
     var order := GameState.current_order
@@ -132,9 +139,32 @@ func _on_next() -> void:
     GameState.current_order_index += 1
     _start_order()
 
+func _on_upgrade() -> void:
+    var costs := [150, 300, 600]
+    var idx := GameState.workshop_stage
+    if idx >= costs.size():
+        status_label.text = "Максимальный уровень" if GameState.language == "ru" else "Max level"
+        return
+    if GameState.money < costs[idx]:
+        status_label.text = "Недостаточно монет" if GameState.language == "ru" else "Not enough coins"
+        return
+    GameState.money -= costs[idx]
+    GameState.workshop_stage += 1
+    status_label.text = "Мастерская улучшена" if GameState.language == "ru" else "Workshop upgraded"
+    _update_ui()
+    _save()
+
+func _on_ad() -> void:
+    ad_button.disabled = true
+    var amount := 120
+    AdService.rewarded_granted.connect(func(a): GameState.money += a; status_label.text = ("Реклама: +%d монет" % a) if GameState.language=="ru" else ("Ad: +%d coins" % a); _update_ui(); _save(), CONNECT_ONE_SHOT)
+    await AdService.show_rewarded(amount)
+    ad_button.disabled = false
+
 func _save() -> void:
     SaveService.save_state({
         "money": GameState.money,
         "order_index": GameState.current_order_index,
-        "language": GameState.language
+        "language": GameState.language,
+        "workshop_stage": GameState.workshop_stage
     })
