@@ -1,31 +1,211 @@
 {
   "clients": [
     {
-      "id": "client_anna",
+      "id": "client_0",
       "name_ru": "Анна",
       "name_en": "Anna",
       "avatar": "0.85,0.45,0.55",
-      "story_ru": "Анна принесла старый системник после переезда. Она хочет просто включить его и не потерять семейные фото.",
-      "story_en": "Anna brought an old PC after moving. She just wants to turn it on and not lose family photos.",
+      "story_ru": "Клиент Анна просит собрать надёжную конфигурацию под бюджет.",
+      "story_en": "Client Anna asks for a reliable configuration within budget.",
       "order_index": 0
     },
     {
-      "id": "client_max",
+      "id": "client_1",
       "name_ru": "Макс",
       "name_en": "Max",
       "avatar": "0.3,0.55,0.85",
-      "story_ru": "Макс хочет играть с друзьями без лагов, но бюджет ограничен.",
-      "story_en": "Max wants to play with friends without lag, but the budget is limited.",
+      "story_ru": "Клиент Макс просит собрать надёжную конфигурацию под бюджет.",
+      "story_en": "Client Max asks for a reliable configuration within budget.",
       "order_index": 1
     },
     {
-      "id": "client_oleg",
+      "id": "client_2",
       "name_ru": "Олег",
       "name_en": "Oleg",
       "avatar": "0.5,0.75,0.45",
-      "story_ru": "Олег собирает тихую рабочую станцию для монтажа и рендера.",
-      "story_en": "Oleg is building a quiet workstation for editing and rendering.",
+      "story_ru": "Клиент Олег просит собрать надёжную конфигурацию под бюджет.",
+      "story_en": "Client Oleg asks for a reliable configuration within budget.",
       "order_index": 2
+    },
+    {
+      "id": "client_3",
+      "name_ru": "Ирина",
+      "name_en": "Irina",
+      "avatar": "0.9,0.6,0.3",
+      "story_ru": "Клиент Ирина просит собрать надёжную конфигурацию под бюджет.",
+      "story_en": "Client Irina asks for a reliable configuration within budget.",
+      "order_index": 3
+    },
+    {
+      "id": "client_4",
+      "name_ru": "Денис",
+      "name_en": "Denis",
+      "avatar": "0.4,0.4,0.8",
+      "story_ru": "Клиент Денис просит собрать надёжную конфигурацию под бюджет.",
+      "story_en": "Client Denis asks for a reliable configuration within budget.",
+      "order_index": 4
+    },
+    {
+      "id": "client_5",
+      "name_ru": "Света",
+      "name_en": "Sveta",
+      "avatar": "0.8,0.3,0.6",
+      "story_ru": "Клиент Света просит собрать надёжную конфигурацию под бюджет.",
+      "story_en": "Client Sveta asks for a reliable configuration within budget.",
+      "order_index": 5
+    },
+    {
+      "id": "client_6",
+      "name_ru": "Павел",
+      "name_en": "Pavel",
+      "avatar": "0.2,0.7,0.7",
+      "story_ru": "Клиент Павел просит собрать надёжную конфигурацию под бюджет.",
+      "story_en": "Client Pavel asks for a reliable configuration within budget.",
+      "order_index": 6
+    },
+    {
+      "id": "client_7",
+      "name_ru": "Катя",
+      "name_en": "Katya",
+      "avatar": "0.7,0.7,0.2",
+      "story_ru": "Клиент Катя просит собрать надёжную конфигурацию под бюджет.",
+      "story_en": "Client Katya asks for a reliable configuration within budget.",
+      "order_index": 7
+    },
+    {
+      "id": "client_8",
+      "name_ru": "Артём",
+      "name_en": "Artem",
+      "avatar": "0.6,0.4,0.9",
+      "story_ru": "Клиент Артём просит собрать надёжную конфигурацию под бюджет.",
+      "story_en": "Client Artem asks for a reliable configuration within budget.",
+      "order_index": 8
+    },
+    {
+      "id": "client_9",
+      "name_ru": "Нина",
+      "name_en": "Nina",
+      "avatar": "0.3,0.8,0.5",
+      "story_ru": "Клиент Нина просит собрать надёжную конфигурацию под бюджет.",
+      "story_en": "Client Nina asks for a reliable configuration within budget.",
+      "order_index": 9
+    },
+    {
+      "id": "client_10",
+      "name_ru": "Игорь",
+      "name_en": "Igor",
+      "avatar": "0.9,0.4,0.4",
+      "story_ru": "Клиент Игорь просит собрать надёжную конфигурацию под бюджет.",
+      "story_en": "Client Igor asks for a reliable configuration within budget.",
+      "order_index": 10
+    },
+    {
+      "id": "client_11",
+      "name_ru": "Лена",
+      "name_en": "Lena",
+      "avatar": "0.4,0.6,0.9",
+      "story_ru": "Клиент Лена просит собрать надёжную конфигурацию под бюджет.",
+      "story_en": "Client Lena asks for a reliable configuration within budget.",
+      "order_index": 11
+    },
+    {
+      "id": "client_12",
+      "name_ru": "Роман",
+      "name_en": "Roman",
+      "avatar": "0.7,0.5,0.3",
+      "story_ru": "Клиент Роман просит собрать надёжную конфигурацию под бюджет.",
+      "story_en": "Client Roman asks for a reliable configuration within budget.",
+      "order_index": 12
+    },
+    {
+      "id": "client_13",
+      "name_ru": "Юля",
+      "name_en": "Yulia",
+      "avatar": "0.5,0.8,0.8",
+      "story_ru": "Клиент Юля просит собрать надёжную конфигурацию под бюджет.",
+      "story_en": "Client Yulia asks for a reliable configuration within budget.",
+      "order_index": 13
+    },
+    {
+      "id": "client_14",
+      "name_ru": "Костя",
+      "name_en": "Kostya",
+      "avatar": "0.8,0.8,0.4",
+      "story_ru": "Клиент Костя просит собрать надёжную конфигурацию под бюджет.",
+      "story_en": "Client Kostya asks for a reliable configuration within budget.",
+      "order_index": 14
+    },
+    {
+      "id": "client_15",
+      "name_ru": "Марина",
+      "name_en": "Marina",
+      "avatar": "0.6,0.3,0.7",
+      "story_ru": "Клиент Марина просит собрать надёжную конфигурацию под бюджет.",
+      "story_en": "Client Marina asks for a reliable configuration within budget.",
+      "order_index": 15
+    },
+    {
+      "id": "client_16",
+      "name_ru": "Сергей",
+      "name_en": "Sergey",
+      "avatar": "0.3,0.7,0.6",
+      "story_ru": "Клиент Сергей просит собрать надёжную конфигурацию под бюджет.",
+      "story_en": "Client Sergey asks for a reliable configuration within budget.",
+      "order_index": 16
+    },
+    {
+      "id": "client_17",
+      "name_ru": "Оля",
+      "name_en": "Olya",
+      "avatar": "0.9,0.5,0.7",
+      "story_ru": "Клиент Оля просит собрать надёжную конфигурацию под бюджет.",
+      "story_en": "Client Olya asks for a reliable configuration within budget.",
+      "order_index": 17
+    },
+    {
+      "id": "client_18",
+      "name_ru": "Виктор",
+      "name_en": "Viktor",
+      "avatar": "0.4,0.5,0.9",
+      "story_ru": "Клиент Виктор просит собрать надёжную конфигурацию под бюджет.",
+      "story_en": "Client Viktor asks for a reliable configuration within budget.",
+      "order_index": 18
+    },
+    {
+      "id": "client_19",
+      "name_ru": "Таня",
+      "name_en": "Tanya",
+      "avatar": "0.7,0.6,0.4",
+      "story_ru": "Клиент Таня просит собрать надёжную конфигурацию под бюджет.",
+      "story_en": "Client Tanya asks for a reliable configuration within budget.",
+      "order_index": 19
+    },
+    {
+      "id": "client_20",
+      "name_ru": "Алекс",
+      "name_en": "Alex",
+      "avatar": "0.5,0.5,0.5",
+      "story_ru": "Клиент Алекс просит собрать надёжную конфигурацию под бюджет.",
+      "story_en": "Client Alex asks for a reliable configuration within budget.",
+      "order_index": 20
+    },
+    {
+      "id": "client_21",
+      "name_ru": "Даша",
+      "name_en": "Dasha",
+      "avatar": "0.9,0.7,0.5",
+      "story_ru": "Клиент Даша просит собрать надёжную конфигурацию под бюджет.",
+      "story_en": "Client Dasha asks for a reliable configuration within budget.",
+      "order_index": 21
+    },
+    {
+      "id": "client_22",
+      "name_ru": "Миша",
+      "name_en": "Misha",
+      "avatar": "0.3,0.4,0.7",
+      "story_ru": "Клиент Миша просит собрать надёжную конфигурацию под бюджет.",
+      "story_en": "Client Misha asks for a reliable configuration within budget.",
+      "order_index": 22
     }
   ]
 }

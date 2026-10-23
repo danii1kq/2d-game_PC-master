@@ -4,7 +4,12 @@
       "id": "order_1",
       "client_ru": "Клиент: «Сделайте, чтобы снова нормально работал»",
       "client_en": "Client: “Make it work normally again”",
-      "requirements": [{"type": "ram_min", "value": 16}],
+      "requirements": [
+        {
+          "type": "ram_min",
+          "value": 16
+        }
+      ],
       "dirt": 10,
       "budget": 160,
       "reward": 90
@@ -13,7 +18,16 @@
       "id": "order_2",
       "client_ru": "Клиент: «Хочу играть без лагов»",
       "client_en": "Client: “I want to play without lag”",
-      "requirements": [{"type": "gpu_min", "value": 30}, {"type": "ram_min", "value": 16}],
+      "requirements": [
+        {
+          "type": "gpu_min",
+          "value": 30
+        },
+        {
+          "type": "ram_min",
+          "value": 16
+        }
+      ],
       "dirt": 14,
       "budget": 420,
       "reward": 200
@@ -22,10 +36,543 @@
       "id": "order_3",
       "client_ru": "Клиент: «Соберите тихий и мощный ПК»",
       "client_en": "Client: “Build a quiet and powerful PC”",
-      "requirements": [{"type": "cpu_min", "value": 40}, {"type": "gpu_min", "value": 40}, {"type": "cooling_min_heat", "value": 0}],
+      "requirements": [
+        {
+          "type": "cpu_min",
+          "value": 40
+        },
+        {
+          "type": "gpu_min",
+          "value": 40
+        },
+        {
+          "type": "cooling_min_heat",
+          "value": 0
+        }
+      ],
       "dirt": 18,
       "budget": 1050,
       "reward": 520
+    },
+    {
+      "id": "order_4",
+      "client_ru": "Клиент: заказ #4",
+      "client_en": "Client: order #4",
+      "requirements": [
+        {
+          "type": "cpu_min",
+          "value": 80
+        },
+        {
+          "type": "gpu_min",
+          "value": 12
+        },
+        {
+          "type": "ram_min",
+          "value": 8
+        },
+        {
+          "type": "cooling_min_heat",
+          "value": 0
+        }
+      ],
+      "dirt": 15,
+      "budget": 1275,
+      "reward": 602
+    },
+    {
+      "id": "order_5",
+      "client_ru": "Клиент: заказ #5",
+      "client_en": "Client: order #5",
+      "requirements": [
+        {
+          "type": "cpu_min",
+          "value": 20
+        },
+        {
+          "type": "gpu_min",
+          "value": 92
+        },
+        {
+          "type": "ram_min",
+          "value": 8
+        },
+        {
+          "type": "cooling_min_heat",
+          "value": 0
+        }
+      ],
+      "dirt": 13,
+      "budget": 1514,
+      "reward": 721
+    },
+    {
+      "id": "order_6",
+      "client_ru": "Клиент: заказ #6",
+      "client_en": "Client: order #6",
+      "requirements": [
+        {
+          "type": "cpu_min",
+          "value": 62
+        },
+        {
+          "type": "gpu_min",
+          "value": 54
+        },
+        {
+          "type": "ram_min",
+          "value": 8
+        },
+        {
+          "type": "cooling_min_heat",
+          "value": 0
+        }
+      ],
+      "dirt": 15,
+      "budget": 1051,
+      "reward": 508
+    },
+    {
+      "id": "order_7",
+      "client_ru": "Клиент: заказ #7",
+      "client_en": "Client: order #7",
+      "requirements": [
+        {
+          "type": "cpu_min",
+          "value": 62
+        },
+        {
+          "type": "gpu_min",
+          "value": 72
+        },
+        {
+          "type": "ram_min",
+          "value": 8
+        },
+        {
+          "type": "cooling_min_heat",
+          "value": 0
+        }
+      ],
+      "dirt": 18,
+      "budget": 1455,
+      "reward": 725
+    },
+    {
+      "id": "order_8",
+      "client_ru": "Клиент: заказ #8",
+      "client_en": "Client: order #8",
+      "requirements": [
+        {
+          "type": "cpu_min",
+          "value": 20
+        },
+        {
+          "type": "gpu_min",
+          "value": 54
+        },
+        {
+          "type": "ram_min",
+          "value": 42
+        },
+        {
+          "type": "cooling_min_heat",
+          "value": 0
+        }
+      ],
+      "dirt": 14,
+      "budget": 1193,
+      "reward": 503
+    },
+    {
+      "id": "order_9",
+      "client_ru": "Клиент: заказ #9",
+      "client_en": "Client: order #9",
+      "requirements": [
+        {
+          "type": "cpu_min",
+          "value": 80
+        },
+        {
+          "type": "gpu_min",
+          "value": 54
+        },
+        {
+          "type": "ram_min",
+          "value": 24
+        },
+        {
+          "type": "cooling_min_heat",
+          "value": 0
+        }
+      ],
+      "dirt": 17,
+      "budget": 1429,
+      "reward": 674
+    },
+    {
+      "id": "order_10",
+      "client_ru": "Клиент: заказ #10",
+      "client_en": "Client: order #10",
+      "requirements": [
+        {
+          "type": "cpu_min",
+          "value": 10
+        },
+        {
+          "type": "gpu_min",
+          "value": 12
+        },
+        {
+          "type": "ram_min",
+          "value": 32
+        },
+        {
+          "type": "cooling_min_heat",
+          "value": 0
+        }
+      ],
+      "dirt": 21,
+      "budget": 595,
+      "reward": 304
+    },
+    {
+      "id": "order_11",
+      "client_ru": "Клиент: заказ #11",
+      "client_en": "Client: order #11",
+      "requirements": [
+        {
+          "type": "cpu_min",
+          "value": 32
+        },
+        {
+          "type": "gpu_min",
+          "value": 12
+        },
+        {
+          "type": "ram_min",
+          "value": 54
+        },
+        {
+          "type": "cooling_min_heat",
+          "value": 0
+        }
+      ],
+      "dirt": 18,
+      "budget": 1108,
+      "reward": 496
+    },
+    {
+      "id": "order_12",
+      "client_ru": "Клиент: заказ #12",
+      "client_en": "Client: order #12",
+      "requirements": [
+        {
+          "type": "cpu_min",
+          "value": 10
+        },
+        {
+          "type": "gpu_min",
+          "value": 72
+        },
+        {
+          "type": "ram_min",
+          "value": 24
+        },
+        {
+          "type": "cooling_min_heat",
+          "value": 0
+        }
+      ],
+      "dirt": 21,
+      "budget": 1349,
+      "reward": 630
+    },
+    {
+      "id": "order_13",
+      "client_ru": "Клиент: заказ #13",
+      "client_en": "Client: order #13",
+      "requirements": [
+        {
+          "type": "cpu_min",
+          "value": 20
+        },
+        {
+          "type": "gpu_min",
+          "value": 92
+        },
+        {
+          "type": "ram_min",
+          "value": 8
+        },
+        {
+          "type": "cooling_min_heat",
+          "value": 0
+        }
+      ],
+      "dirt": 16,
+      "budget": 1174,
+      "reward": 532
+    },
+    {
+      "id": "order_14",
+      "client_ru": "Клиент: заказ #14",
+      "client_en": "Client: order #14",
+      "requirements": [
+        {
+          "type": "cpu_min",
+          "value": 10
+        },
+        {
+          "type": "gpu_min",
+          "value": 24
+        },
+        {
+          "type": "ram_min",
+          "value": 8
+        },
+        {
+          "type": "cooling_min_heat",
+          "value": 0
+        }
+      ],
+      "dirt": 22,
+      "budget": 635,
+      "reward": 341
+    },
+    {
+      "id": "order_15",
+      "client_ru": "Клиент: заказ #15",
+      "client_en": "Client: order #15",
+      "requirements": [
+        {
+          "type": "cpu_min",
+          "value": 32
+        },
+        {
+          "type": "gpu_min",
+          "value": 24
+        },
+        {
+          "type": "ram_min",
+          "value": 24
+        },
+        {
+          "type": "cooling_min_heat",
+          "value": 0
+        }
+      ],
+      "dirt": 22,
+      "budget": 816,
+      "reward": 402
+    },
+    {
+      "id": "order_16",
+      "client_ru": "Клиент: заказ #16",
+      "client_en": "Client: order #16",
+      "requirements": [
+        {
+          "type": "cpu_min",
+          "value": 80
+        },
+        {
+          "type": "gpu_min",
+          "value": 12
+        },
+        {
+          "type": "ram_min",
+          "value": 42
+        },
+        {
+          "type": "cooling_min_heat",
+          "value": 0
+        }
+      ],
+      "dirt": 15,
+      "budget": 1531,
+      "reward": 760
+    },
+    {
+      "id": "order_17",
+      "client_ru": "Клиент: заказ #17",
+      "client_en": "Client: order #17",
+      "requirements": [
+        {
+          "type": "cpu_min",
+          "value": 20
+        },
+        {
+          "type": "gpu_min",
+          "value": 54
+        },
+        {
+          "type": "ram_min",
+          "value": 32
+        },
+        {
+          "type": "cooling_min_heat",
+          "value": 0
+        }
+      ],
+      "dirt": 15,
+      "budget": 1118,
+      "reward": 534
+    },
+    {
+      "id": "order_18",
+      "client_ru": "Клиент: заказ #18",
+      "client_en": "Client: order #18",
+      "requirements": [
+        {
+          "type": "cpu_min",
+          "value": 80
+        },
+        {
+          "type": "gpu_min",
+          "value": 38
+        },
+        {
+          "type": "ram_min",
+          "value": 8
+        },
+        {
+          "type": "cooling_min_heat",
+          "value": 0
+        }
+      ],
+      "dirt": 17,
+      "budget": 1235,
+      "reward": 525
+    },
+    {
+      "id": "order_19",
+      "client_ru": "Клиент: заказ #19",
+      "client_en": "Client: order #19",
+      "requirements": [
+        {
+          "type": "cpu_min",
+          "value": 46
+        },
+        {
+          "type": "gpu_min",
+          "value": 38
+        },
+        {
+          "type": "ram_min",
+          "value": 8
+        },
+        {
+          "type": "cooling_min_heat",
+          "value": 0
+        }
+      ],
+      "dirt": 17,
+      "budget": 946,
+      "reward": 458
+    },
+    {
+      "id": "order_20",
+      "client_ru": "Клиент: заказ #20",
+      "client_en": "Client: order #20",
+      "requirements": [
+        {
+          "type": "cpu_min",
+          "value": 20
+        },
+        {
+          "type": "gpu_min",
+          "value": 92
+        },
+        {
+          "type": "ram_min",
+          "value": 32
+        },
+        {
+          "type": "cooling_min_heat",
+          "value": 0
+        }
+      ],
+      "dirt": 14,
+      "budget": 1533,
+      "reward": 710
+    },
+    {
+      "id": "order_21",
+      "client_ru": "Клиент: заказ #21",
+      "client_en": "Client: order #21",
+      "requirements": [
+        {
+          "type": "cpu_min",
+          "value": 32
+        },
+        {
+          "type": "gpu_min",
+          "value": 24
+        },
+        {
+          "type": "ram_min",
+          "value": 16
+        },
+        {
+          "type": "cooling_min_heat",
+          "value": 0
+        }
+      ],
+      "dirt": 16,
+      "budget": 1041,
+      "reward": 517
+    },
+    {
+      "id": "order_22",
+      "client_ru": "Клиент: заказ #22",
+      "client_en": "Client: order #22",
+      "requirements": [
+        {
+          "type": "cpu_min",
+          "value": 80
+        },
+        {
+          "type": "gpu_min",
+          "value": 72
+        },
+        {
+          "type": "ram_min",
+          "value": 32
+        },
+        {
+          "type": "cooling_min_heat",
+          "value": 0
+        }
+      ],
+      "dirt": 15,
+      "budget": 1831,
+      "reward": 860
+    },
+    {
+      "id": "order_23",
+      "client_ru": "Клиент: заказ #23",
+      "client_en": "Client: order #23",
+      "requirements": [
+        {
+          "type": "cpu_min",
+          "value": 20
+        },
+        {
+          "type": "gpu_min",
+          "value": 72
+        },
+        {
+          "type": "ram_min",
+          "value": 32
+        },
+        {
+          "type": "cooling_min_heat",
+          "value": 0
+        }
+      ],
+      "dirt": 13,
+      "budget": 1166,
+      "reward": 500
     }
   ]
 }
