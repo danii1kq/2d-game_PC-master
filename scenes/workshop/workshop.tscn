@@ -1,0 +1,88 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/gameplay/workshop.gd" id="1"]
+
+[node name="Workshop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1")
+
+[node name="RootVBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="OrderLabel" type="Label" parent="RootVBox"]
+layout_mode = 2
+text = "Заказ"
+autowrap_mode = 2
+
+[node name="BudgetLabel" type="Label" parent="RootVBox"]
+layout_mode = 2
+text = "Бюджет: 0"
+
+[node name="Middle" type="HBoxContainer" parent="RootVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PCPanel" type="PanelContainer" parent="RootVBox/Middle"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PCVBox" type="VBoxContainer" parent="RootVBox/Middle/PCPanel"]
+layout_mode = 2
+
+[node name="PCLabel" type="Label" parent="RootVBox/Middle/PCPanel/PCVBox"]
+layout_mode = 2
+text = "Системник"
+horizontal_alignment = 1
+
+[node name="DirtContainer" type="Control" parent="RootVBox/Middle/PCPanel/PCVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SlotsLabel" type="Label" parent="RootVBox/Middle/PCPanel/PCVBox"]
+layout_mode = 2
+text = "Слоты: CPU/GPU/RAM/Cooling"
+
+[node name="ComponentsPanel" type="PanelContainer" parent="RootVBox/Middle"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CompVBox" type="VBoxContainer" parent="RootVBox/Middle/ComponentsPanel"]
+layout_mode = 2
+
+[node name="CompTitle" type="Label" parent="RootVBox/Middle/ComponentsPanel/CompVBox"]
+layout_mode = 2
+text = "Комплектующие"
+
+[node name="CPUOption" type="OptionButton" parent="RootVBox/Middle/ComponentsPanel/CompVBox"]
+layout_mode = 2
+
+[node name="GPUOption" type="OptionButton" parent="RootVBox/Middle/ComponentsPanel/CompVBox"]
+layout_mode = 2
+
+[node name="RAMOption" type="OptionButton" parent="RootVBox/Middle/ComponentsPanel/CompVBox"]
+layout_mode = 2
+
+[node name="CoolOption" type="OptionButton" parent="RootVBox/Middle/ComponentsPanel/CompVBox"]
+layout_mode = 2
+
+[node name="Bottom" type="HBoxContainer" parent="RootVBox"]
+layout_mode = 2
+
+[node name="TestButton" type="Button" parent="RootVBox/Bottom"]
+layout_mode = 2
+text = "Тест"
+
+[node name="NextButton" type="Button" parent="RootVBox/Bottom"]
+layout_mode = 2
+text = "Следующий заказ"
+
+[node name="StatusLabel" type="Label" parent="RootVBox/Bottom"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Очистите системник"
