@@ -11,19 +11,27 @@ var colors := [
 ]
 
 func _ready() -> void:
+    UITheme.style_button(back_button)
     back_button.pressed.connect(func(): get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn"))
     _update_language()
     for i in colors.size():
+        var unlocked := GameState.current_order_index >= i or GameState.money >= (i + 1) * 150
         var p := PanelContainer.new()
-        p.custom_minimum_size = Vector2(96, 96)
+        p.custom_minimum_size = Vector2(100, 110)
+        UITheme.style_panel(p)
+        var vbox := VBoxContainer.new()
+        vbox.layout_mode = 2
+        p.add_child(vbox)
         var rect := ColorRect.new()
-        rect.color = colors[i]
         rect.custom_minimum_size = Vector2(80, 80)
-        p.add_child(rect)
+        rect.color = colors[i] if unlocked else Color(0.2,0.2,0.2)
+        vbox.add_child(rect)
         var lbl := Label.new()
-        lbl.text = "PC %d" % (i + 1)
+        lbl.text = ("PC %d" % (i + 1)) if unlocked else "Заблокировано"
         lbl.horizontal_alignment = 1
-        p.add_child(lbl)
+        vbox.add_child(lbl)
+        if not unlocked:
+            p.modulate = Color(0.5,0.5,0.5)
         grid.add_child(p)
 
 func _update_language() -> void:
