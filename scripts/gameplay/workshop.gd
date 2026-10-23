@@ -220,6 +220,7 @@ func _on_test() -> void:
     test_button.disabled = true
     next_button.disabled = true
     benchmark_bar.value = 0
+    status_label.text = "Тестируем..." if GameState.language == "ru" else "Testing..."
     var steps := 40
     for i in steps:
         await get_tree().create_timer(0.08).timeout
