@@ -29,6 +29,8 @@ extends Control
 @onready var clean_player: AudioStreamPlayer = $CleanPlayer
 @onready var success_particles: CPUParticles2D = $SuccessParticles
 @onready var brush: ColorRect = $Brush
+@onready var tutorial_panel: PanelContainer = $TutorialPanel
+@onready var tutorial_label: Label = $TutorialPanel/TutorialLabel
 @onready var status_label: Label = $RootVBox/Bottom/StatusLabel
 @onready var pc_panel: PanelContainer = $RootVBox/Middle/PCPanel
 
@@ -55,6 +57,8 @@ func _ready() -> void:
     ram_slot.pressed.connect(func(): _clear_slot("ram"))
     cool_slot.pressed.connect(func(): _clear_slot("cooling"))
     money_label.pivot_offset = money_label.size * 0.5
+    UITheme.style_panel(tutorial_panel)
+    tutorial_panel.visible = false
     _start_order()
 
 func _start_order() -> void:
@@ -69,6 +73,9 @@ func _start_order() -> void:
     _populate_options()
     _create_dirt()
     _update_ui()
+    if GameState.current_order_index == 0:
+        tutorial_panel.visible = true
+        tutorial_label.text = "Подсказка:\n1) Очистите все пятна\n2) Выберите детали\n3) Нажмите Тест" if GameState.language == "ru" else "Hint:\n1) Clean all spots\n2) Choose parts\n3) Press Test"
     EventService.log_event("order_start", {"order_id": order.get("id")})
 
 func _populate_options() -> void:
@@ -223,6 +230,7 @@ func _on_test() -> void:
     status_label.text = ("Тест пройден! +%d монет" % int(order.get("reward", 0))) if GameState.language == "ru" else ("Test passed! +%d coins" % int(order.get("reward", 0)))
     success_player.play()
     success_particles.restart()
+    tutorial_panel.visible = false
     var tw := create_tween()
     tw.tween_property(pc_panel, "modulate", Color(0.4, 1.0, 0.5), 0.2)
     tw.tween_property(pc_panel, "modulate", Color(1,1,1), 0.4)

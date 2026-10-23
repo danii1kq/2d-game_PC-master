@@ -196,6 +196,21 @@ autostart = true
 [node name="SuccessParticles" type="CPUParticles2D" parent="."]
 position = Vector2(400, 300)
 
+[node name="TutorialPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -320.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 120.0
+
+[node name="TutorialLabel" type="Label" parent="TutorialPanel"]
+layout_mode = 2
+text = "Подсказка"
+autowrap_mode = 2
+
 [node name="Brush" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(24, 24)
 size = Vector2(24, 24)
