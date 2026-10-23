@@ -40,6 +40,7 @@ func _start_order() -> void:
     _populate_options()
     _create_dirt()
     _update_ui()
+    EventService.log_event("order_start", {"order_id": order.get("id")})
 
 func _populate_options() -> void:
     _fill_option(cpu_option, "cpu")
@@ -132,6 +133,7 @@ func _on_test() -> void:
     # success
     GameState.money += int(order.get("reward", 0))
     GameState.stage = "done"
+    EventService.log_event("order_complete", {"order_id": order.get("id"), "reward": order.get("reward")})
     status_label.text = ("Тест пройден! +%d монет" % int(order.get("reward", 0))) if GameState.language == "ru" else ("Test passed! +%d coins" % int(order.get("reward", 0)))
     _save()
 
