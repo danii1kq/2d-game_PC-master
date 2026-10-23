@@ -193,6 +193,21 @@ custom_minimum_size = Vector2(120, 44)
 wait_time = 5.0
 autostart = true
 
+[node name="SuccessParticles" type="CPUParticles2D" parent="."]
+position = Vector2(400, 300)
+emitting = false
+amount = 32
+lifetime = 0.8
+one_shot = true
+explosiveness = 0.9
+spread = 180.0
+gravity = Vector2(0, 200)
+initial_velocity_min = 80.0
+initial_velocity_max = 180.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+color = Color(0.4, 1.0, 0.5, 1)
+
 [node name="ClickPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2")
 

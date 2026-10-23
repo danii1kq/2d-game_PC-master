@@ -27,6 +27,7 @@ extends Control
 @onready var click_player: AudioStreamPlayer = $ClickPlayer
 @onready var success_player: AudioStreamPlayer = $SuccessPlayer
 @onready var clean_player: AudioStreamPlayer = $CleanPlayer
+@onready var success_particles: CPUParticles2D = $SuccessParticles
 @onready var status_label: Label = $RootVBox/Bottom/StatusLabel
 @onready var pc_panel: PanelContainer = $RootVBox/Middle/PCPanel
 
@@ -217,6 +218,7 @@ func _on_test() -> void:
     GameState.stage = "done"
     status_label.text = ("Тест пройден! +%d монет" % int(order.get("reward", 0))) if GameState.language == "ru" else ("Test passed! +%d coins" % int(order.get("reward", 0)))
     success_player.play()
+    success_particles.restart()
     var tw := create_tween()
     tw.tween_property(pc_panel, "modulate", Color(0.4, 1.0, 0.5), 0.2)
     tw.tween_property(pc_panel, "modulate", Color(1,1,1), 0.4)
