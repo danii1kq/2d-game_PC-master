@@ -9,11 +9,25 @@ extends Control
 @onready var desc: Label = $Center/Panel/VBox/Desc
 
 func _ready() -> void:
+    for b in [play_button, showcase_button, language_button, quit_button]:
+        UITheme.style_button(b)
+        b.pivot_offset = b.size / 2.0
+        b.mouse_entered.connect(func(): _tween_scale(b, 1.05))
+        b.mouse_exited.connect(func(): _tween_scale(b, 1.0))
+    UITheme.style_panel($Center/Panel)
     play_button.pressed.connect(_on_play)
     showcase_button.pressed.connect(_on_showcase)
     language_button.pressed.connect(_on_language)
     quit_button.pressed.connect(_on_quit)
     _update_language()
+    # fade in
+    modulate.a = 0.0
+    var tw := create_tween()
+    tw.tween_property(self, "modulate:a", 1.0, 0.4)
+
+func _tween_scale(btn: Button, s: float) -> void:
+    var tw := create_tween()
+    tw.tween_property(btn, "scale", Vector2(s, s), 0.12)
 
 func _on_play() -> void:
     get_tree().change_scene_to_file("res://scenes/workshop/workshop.tscn")

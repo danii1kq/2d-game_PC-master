@@ -25,6 +25,7 @@ PauseManager="*res://scripts/services/pause_manager.gd"
 AdService="*res://scripts/services/ad_service.gd"
 EventService="*res://scripts/services/event_service.gd"
 StoryService="*res://scripts/services/story_service.gd"
+UITheme="*res://scripts/ui/ui_theme.gd"
 
 [display]
 

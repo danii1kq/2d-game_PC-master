@@ -34,6 +34,10 @@ var _dirt_nodes: Array = []
 var _benchmarking := false
 
 func _ready() -> void:
+    for b in [test_button, next_button, upgrade_button, ad_button, assistant_button, cpu_slot, gpu_slot, ram_slot, cool_slot]:
+        UITheme.style_button(b)
+    for p in [$RootVBox/Middle/ClientPanel, $RootVBox/Middle/PCPanel, $RootVBox/Middle/ComponentsPanel]:
+        UITheme.style_panel(p)
     test_button.pressed.connect(_on_test)
     next_button.pressed.connect(_on_next)
     upgrade_button.pressed.connect(_on_upgrade)
@@ -48,6 +52,7 @@ func _ready() -> void:
     gpu_slot.pressed.connect(func(): _clear_slot("gpu"))
     ram_slot.pressed.connect(func(): _clear_slot("ram"))
     cool_slot.pressed.connect(func(): _clear_slot("cooling"))
+    money_label.pivot_offset = money_label.size * 0.5
     _start_order()
 
 func _start_order() -> void:
@@ -212,6 +217,12 @@ func _on_test() -> void:
     GameState.stage = "done"
     status_label.text = ("Тест пройден! +%d монет" % int(order.get("reward", 0))) if GameState.language == "ru" else ("Test passed! +%d coins" % int(order.get("reward", 0)))
     success_player.play()
+    var tw := create_tween()
+    tw.tween_property(pc_panel, "modulate", Color(0.4, 1.0, 0.5), 0.2)
+    tw.tween_property(pc_panel, "modulate", Color(1,1,1), 0.4)
+    var tw2 := create_tween()
+    tw2.tween_property(money_label, "scale", Vector2(1.2,1.2), 0.15)
+    tw2.tween_property(money_label, "scale", Vector2(1.0,1.0), 0.15)
     benchmark_bar.value = 100
     EventService.log_event("order_complete", {"order_id": order.get("id"), "reward": order.get("reward")})
     _save()
