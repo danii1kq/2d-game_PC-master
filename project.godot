@@ -11,9 +11,20 @@ config_version=5
 [application]
 
 config/name="2D-Game"
+run/main_scene="res://scenes/boot/boot.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
-run/main_scene="res://scenes/boot/boot.tscn"
+
+[autoload]
+
+GameState="*res://scripts/core/game_state.gd"
+OrderService="*res://scripts/services/order_service.gd"
+SaveService="*res://scripts/services/save_service.gd"
+EconomyService="*res://scripts/services/economy_service.gd"
+PauseManager="*res://scripts/services/pause_manager.gd"
+AdService="*res://scripts/services/ad_service.gd"
+EventService="*res://scripts/services/event_service.gd"
+StoryService="*res://scripts/services/story_service.gd"
 
 [display]
 
@@ -29,13 +40,3 @@ window/stretch/aspect="expand"
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-
-[autoload]
-
-GameState="*res://scripts/core/game_state.gd"
-OrderService="*res://scripts/services/order_service.gd"
-SaveService="*res://scripts/services/save_service.gd"
-EconomyService="*res://scripts/services/economy_service.gd"
-PauseManager="*res://scripts/services/pause_manager.gd"
-AdService="*res://scripts/services/ad_service.gd"
-EventService="*res://scripts/services/event_service.gd"

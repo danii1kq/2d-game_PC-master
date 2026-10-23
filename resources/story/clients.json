@@ -1,0 +1,31 @@
+{
+  "clients": [
+    {
+      "id": "client_anna",
+      "name_ru": "Анна",
+      "name_en": "Anna",
+      "avatar": "0.85,0.45,0.55",
+      "story_ru": "Анна принесла старый системник после переезда. Она хочет просто включить его и не потерять семейные фото.",
+      "story_en": "Anna brought an old PC after moving. She just wants to turn it on and not lose family photos.",
+      "order_index": 0
+    },
+    {
+      "id": "client_max",
+      "name_ru": "Макс",
+      "name_en": "Max",
+      "avatar": "0.3,0.55,0.85",
+      "story_ru": "Макс хочет играть с друзьями без лагов, но бюджет ограничен.",
+      "story_en": "Max wants to play with friends without lag, but the budget is limited.",
+      "order_index": 1
+    },
+    {
+      "id": "client_oleg",
+      "name_ru": "Олег",
+      "name_en": "Oleg",
+      "avatar": "0.5,0.75,0.45",
+      "story_ru": "Олег собирает тихую рабочую станцию для монтажа и рендера.",
+      "story_en": "Oleg is building a quiet workstation for editing and rendering.",
+      "order_index": 2
+    }
+  ]
+}
