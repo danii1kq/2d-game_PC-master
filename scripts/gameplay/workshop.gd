@@ -22,6 +22,11 @@ extends Control
 @onready var next_button: Button = $RootVBox/Bottom/NextButton
 @onready var upgrade_button: Button = $RootVBox/Bottom/UpgradeButton
 @onready var ad_button: Button = $RootVBox/Bottom/AdButton
+@onready var assistant_button: Button = $RootVBox/Bottom/AssistantButton
+@onready var assistant_timer: Timer = $AssistantTimer
+@onready var click_player: AudioStreamPlayer = $ClickPlayer
+@onready var success_player: AudioStreamPlayer = $SuccessPlayer
+@onready var clean_player: AudioStreamPlayer = $CleanPlayer
 @onready var status_label: Label = $RootVBox/Bottom/StatusLabel
 @onready var pc_panel: PanelContainer = $RootVBox/Middle/PCPanel
 
@@ -33,6 +38,8 @@ func _ready() -> void:
     next_button.pressed.connect(_on_next)
     upgrade_button.pressed.connect(_on_upgrade)
     ad_button.pressed.connect(_on_ad)
+    assistant_button.pressed.connect(_on_assistant)
+    assistant_timer.timeout.connect(_on_assistant_tick)
     cpu_option.item_selected.connect(func(i): _select_component("cpu", i))
     gpu_option.item_selected.connect(func(i): _select_component("gpu", i))
     ram_option.item_selected.connect(func(i): _select_component("ram", i))
@@ -115,6 +122,7 @@ func _on_dirt_input(event: InputEvent, spot: ColorRect) -> void:
         if spot in _dirt_nodes:
             _dirt_nodes.erase(spot)
             spot.queue_free()
+            clean_player.play()
             GameState.dirt_remaining = max(0, GameState.dirt_remaining - 1)
             var threshold := maxi(1, int(ceil(GameState.dirt_total * 0.05)))
             if GameState.dirt_remaining <= threshold:
@@ -155,6 +163,7 @@ func _update_ui() -> void:
     if GameState.dirt_total > 0:
         dirt_pct = int(100.0 * (GameState.dirt_total - GameState.dirt_remaining) / GameState.dirt_total)
     status_label.text = ("Очистка: %d%% | Мастерская %d/3" % [dirt_pct, GameState.workshop_stage + 1]) if GameState.language == "ru" else ("Cleaning: %d%% | Workshop %d/3" % [dirt_pct, GameState.workshop_stage + 1])
+    assistant_button.text = ("Помощник %d" % GameState.assistant_level) if GameState.language == "ru" else ("Assistant %d" % GameState.assistant_level)
     var stage_colors := [Color(0.25,0.25,0.3), Color(0.3,0.25,0.4), Color(0.25,0.35,0.45)]
     pc_panel.modulate = stage_colors[clamp(GameState.workshop_stage, 0, 2)]
     install_hint.text = "Выберите деталь, затем слот" if GameState.language == "ru" else "Choose a part, then a slot"
@@ -202,6 +211,7 @@ func _on_test() -> void:
     GameState.money += int(order.get("reward", 0))
     GameState.stage = "done"
     status_label.text = ("Тест пройден! +%d монет" % int(order.get("reward", 0))) if GameState.language == "ru" else ("Test passed! +%d coins" % int(order.get("reward", 0)))
+    success_player.play()
     benchmark_bar.value = 100
     EventService.log_event("order_complete", {"order_id": order.get("id"), "reward": order.get("reward")})
     _save()
@@ -239,10 +249,32 @@ func _on_ad() -> void:
     await AdService.show_rewarded(amount)
     ad_button.disabled = false
 
+func _on_assistant() -> void:
+    var cost := 200 if GameState.assistant_level == 0 else 300
+    if GameState.money < cost:
+        status_label.text = "Недостаточно монет" if GameState.language == "ru" else "Not enough coins"
+        return
+    GameState.money -= cost
+    GameState.assistant_level += 1
+    status_label.text = ("Помощник нанят: уровень %d" % GameState.assistant_level) if GameState.language == "ru" else ("Assistant hired: level %d" % GameState.assistant_level)
+    EventService.log_event("assistant_upgraded", {"level": GameState.assistant_level})
+    _update_ui()
+    _save()
+
+func _on_assistant_tick() -> void:
+    if GameState.assistant_level > 0:
+        GameState.money += 5 * GameState.assistant_level
+        _update_ui()
+        _save()
+
 func _save() -> void:
+    GameState.last_save_time = Time.get_unix_time_from_system()
     SaveService.save_state({
         "money": GameState.money,
         "order_index": GameState.current_order_index,
         "language": GameState.language,
-        "workshop_stage": GameState.workshop_stage
+        "workshop_stage": GameState.workshop_stage,
+        "assistant_level": GameState.assistant_level,
+        "personal_pc_parts": GameState.personal_pc_parts,
+        "last_save_time": GameState.last_save_time
     })

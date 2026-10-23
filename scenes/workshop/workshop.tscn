@@ -1,6 +1,9 @@
 [gd_scene format=3]
 
 [ext_resource type="Script" path="res://scripts/gameplay/workshop.gd" id="1"]
+[ext_resource type="AudioStreamWAV" path="res://assets/audio/click.wav" id="2"]
+[ext_resource type="AudioStreamWAV" path="res://assets/audio/success.wav" id="3"]
+[ext_resource type="AudioStreamWAV" path="res://assets/audio/clean.wav" id="4"]
 
 [node name="Workshop" type="Control"]
 layout_mode = 3
@@ -180,6 +183,24 @@ custom_minimum_size = Vector2(110, 44)
 layout_mode = 2
 text = "Реклама +120"
 custom_minimum_size = Vector2(120, 44)
+
+[node name="AssistantButton" type="Button" parent="RootVBox/Bottom"]
+layout_mode = 2
+text = "Помощник"
+custom_minimum_size = Vector2(120, 44)
+
+[node name="AssistantTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="ClickPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2")
+
+[node name="SuccessPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3")
+
+[node name="CleanPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4")
 
 [node name="StatusLabel" type="Label" parent="RootVBox/Bottom"]
 layout_mode = 2
